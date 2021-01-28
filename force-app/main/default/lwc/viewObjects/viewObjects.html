@@ -1,0 +1,24 @@
+<template>
+    <lightning-card title="Available sObjects" icon-name="custom:custom63">
+        <div class="slds-align_absolute-center">
+            <lightning-combobox placeholder="SELECT ONE" value={value} onchange={handleChange} options={objectsOptions}>
+            </lightning-combobox>
+        </div>
+        <lightning-card title="General information" icon-name="custom:custom63">
+            <template if:true={objectInfo.data}>
+                <div class="slds-text-heading--medium">Object icon: </div>
+                <div class="slds-icon_container">
+                    <img src={ObjectIcon} alt="" style="background-color:black" />
+                </div>
+                <div class="slds-text-heading--medium">Object label: {ObjectLabel}</div>
+                <div class="slds-text-heading--medium">Object apiName: {ObjectApiName}</div>
+                <div class="slds-text-heading--medium">Object key Prefix: {ObjectkeyPrefix}</div>
+                <div class="slds-text-heading--medium">Object info: {ObjectInfo}</div>
+                <div style="height: 300px;">
+                    <lightning-datatable key-field="id" data={fieldInformation} columns={columns}>
+                    </lightning-datatable>
+                </div>
+            </template>
+        </lightning-card>
+    </lightning-card>
+</template>
